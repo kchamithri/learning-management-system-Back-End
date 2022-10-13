@@ -27,5 +27,6 @@ public class Announcement {
     public String postDate;
 
     @ManyToOne
+    @JoinColumn(name = "lecturer_email")
     private Lecturer lecturer;
 }

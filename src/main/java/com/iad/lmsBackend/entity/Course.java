@@ -19,10 +19,8 @@ public class Course {
     @Column(name = "courseName")
     private String courseName;
 
-    @OneToMany
-    private List<Assignment> assignmentList;
-
     @ManyToOne
+    @JoinColumn(name = "lecturer_email")
     private Lecturer lecturer;
 
     @ManyToMany(mappedBy = "courseList")

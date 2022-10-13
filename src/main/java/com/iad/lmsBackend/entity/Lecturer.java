@@ -27,12 +27,4 @@ public class Lecturer {
     @Column(name = "mobile")
     private String mobile;
 
-    @OneToMany
-    private List<Course> courseList;
-
-    @OneToMany
-    private List<Announcement> announcementList;
-
-    @OneToMany
-    private List<StudentsMarks> studentsMarksList;
 }

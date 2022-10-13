@@ -11,31 +11,30 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Assignment {
 
     @Id
-    @Column(name = "file_name")
-    private String file_name;
+    @Column(name = "assignmentId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int assignmentId;
 
-    @Column(name = "subject_id")
-    private String subject_id;
+    @Column(name = "assignmentName")
+    private String assignmentName;
 
-    @Column(name = "assignment_name")
-    private String assignment_name;
+    @Column(name = "assignmentDescription")
+    private String assignmentDescription;
 
-    @Column(name = "assignment_description")
-    private String assignment_description;
-
-    @Column(name = "final_submit_date")
-    private String final_submit_date;
-
-    @Column(name = "file_type")
-    private String file_type;
-
-    @Column(name = "file_size")
-    private long file_size;
+    @Column(name = "finalSubmitDate")
+    private String finalSubmitDate;
 
     @Column(name = "date")
     private String date;
+
+    @ManyToOne
+    private Course course;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private StudentsMarks studentsMarks;
 
 }

@@ -10,12 +10,23 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "studentMarks")
+@Table(name = "student_marks")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentsMarks extends Assignment {
+public class StudentsMarks implements Serializable{
+
+    @Id
+    @Column(name = "courseId")
+    private String courseId;
+
+    @Id
+    @Column(name = "studentId")
+    private String studentId;
+
+    @Column(name = "assignmentName")
+    private Date assignmentName;
 
     @Column(name = "marks")
     private double marks;
@@ -23,12 +34,4 @@ public class StudentsMarks extends Assignment {
     @Column(name = "evaluatedDate")
     private Date evaluatedDate;
 
-    @ManyToOne
-    private Lecturer lecturer;
-
-    @OneToOne
-    private Assignment assignment;
-
-    @ManyToOne
-    private Student student;
 }

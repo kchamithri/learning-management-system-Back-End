@@ -5,13 +5,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "assignments")
 @Getter
 @Setter
 @NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Assignment {
 
     @Id
@@ -29,12 +29,10 @@ public class Assignment {
     private String finalSubmitDate;
 
     @Column(name = "date")
-    private String date;
+    private Date date;
 
     @ManyToOne
+    @JoinColumn(name = "course_id")
     private Course course;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    private StudentsMarks studentsMarks;
 
 }

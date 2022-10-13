@@ -38,9 +38,6 @@ public class Student {
     @Column(name = "address")
     private String address;
 
-    @OneToMany
-    private List<StudentsMarks> studentMarks;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "student_course",

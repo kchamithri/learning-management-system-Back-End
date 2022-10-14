@@ -15,9 +15,8 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentsMarks implements Serializable{
+public class StudentsMarks{
 
-    @Id
     @Column(name = "courseId")
     private String courseId;
 

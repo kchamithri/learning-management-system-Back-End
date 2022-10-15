@@ -18,7 +18,14 @@ public class Announcement {
     @Column(name = "announcement_id")
     private String announcementId;
 
+    @Column(name = "name")
+    private String name;
 
+    @Column(name = "description")
+    private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
 
 }

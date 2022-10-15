@@ -23,4 +23,9 @@ public class CourseController {
     public CourseResponse findCourses(@RequestBody CourseRequest request){
         return courseService.view(request);
     }
+
+    @PostMapping("/viewAll")
+    public CourseResponse viewAll(@RequestBody CourseRequest request){
+        return courseService.viewList(request);
+    }
 }

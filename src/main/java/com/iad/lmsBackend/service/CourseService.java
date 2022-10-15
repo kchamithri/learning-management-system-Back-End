@@ -11,15 +11,23 @@ import java.util.List;
 
 @Service
 public class CourseService {
-
     @Autowired
     CourseRepository courseRepository;
-
 
     public CourseResponse view(CourseRequest request){
         CourseResponse response = new CourseResponse();
 
         List<Course> courseList = courseRepository.findCoursesByUserList(request);
+
+        response.setMessage("successfully retrieved");
+        response.setStatus("00");
+        return response;
+    }
+
+    public CourseResponse viewList(CourseRequest request){
+        CourseResponse response = new CourseResponse();
+
+        List<Course> courseList = courseRepository.findAll();
 
         response.setMessage("successfully retrieved");
         response.setStatus("00");

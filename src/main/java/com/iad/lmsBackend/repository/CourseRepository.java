@@ -10,6 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CourseRepository extends JpaRepository<Course, String> {
-    @Query("select c.courseId, c.courseName from Course c join user_course t where c.courseId=t.courseId AND t.userId=1")
+//    @Query("select c.courseId, c.courseName from Course c join user_course t where c.courseId=t.courseId AND t.userId=1")
     List<Course> findCoursesByUserList(CourseRequest request);
 }

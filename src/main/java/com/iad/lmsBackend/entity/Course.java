@@ -28,6 +28,4 @@ public class Course {
     @OneToMany
     private List<Assignment> assignmentList;
 
-    @OneToMany
-    private List<Announcement> announcementList;
 }

@@ -14,9 +14,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Announcement {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "announcement_id")
-    private String announcementId;
+    private int announcementId;
 
     @Column(name = "name")
     private String name;
@@ -24,8 +26,6 @@ public class Announcement {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
-
+    @Column(name = "courseId")
+    private String courseId;
 }

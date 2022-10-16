@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins="*" ,  allowedHeaders = "*")
-@RequestMapping("/auth/announcement")
+@RequestMapping("auth/announcement")
 public class AnnouncementsController {
 
     @Autowired
@@ -23,5 +23,20 @@ public class AnnouncementsController {
     @PostMapping("/view")
     public AnnouncementResponse viewAnnouncement(@RequestBody AnnouncementRequest request){
         return announcementService.viewAnnouncements(request);
+    }
+
+    @PostMapping("/save")
+    public AnnouncementResponse saveAnnouncement(@RequestBody AnnouncementRequest request){
+        return announcementService.saveAnnouncements(request);
+    }
+
+    @PostMapping("/update")
+    public AnnouncementResponse updateAnnouncement(@RequestBody AnnouncementRequest request){
+        return announcementService.updateAnnouncements(request);
+    }
+
+    @PostMapping("/delete")
+    public AnnouncementResponse deleteAnnouncement(@RequestBody AnnouncementRequest request){
+        return announcementService.deleteAnnouncements(request);
     }
 }

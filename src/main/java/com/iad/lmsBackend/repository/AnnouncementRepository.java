@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface AnnouncementRepository extends JpaRepository<AnnouncementRepository, String> {
-    @Query("SELECT a FROM Announcement a JOIN Course c WHERE c.courseId=2")
-    List<Announcement> viewAll(AnnouncementRequest request);
+public interface AnnouncementRepository extends JpaRepository<Announcement, String> {
+    List<Announcement> findByCourseId(String courseId);
 }

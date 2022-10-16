@@ -1,41 +1,36 @@
 package com.iad.lmsBackend.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "assignments")
+@Table(name = "assignment")
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Assignment {
-
     @Id
-    @Column(name = "file_name")
-    private String file_name;
+    @Column(name = "assignmentId")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int assignmentId;
 
-    @Column(name = "subject_id")
-    private String subject_id;
+    @Column(name = "assignmentName")
+    private String assignmentName;
 
-    @Column(name = "assignment_name")
-    private String assignment_name;
+    @Column(name = "assignmentDescription")
+    private String assignmentDescription;
 
-    @Column(name = "assignment_description")
-    private String assignment_description;
+    @Column(name = "finalSubmitDate")
+    private String finalSubmitDate;
 
-    @Column(name = "final_submit_date")
-    private String final_submit_date;
-
-    @Column(name = "file_type")
-    private String file_type;
-
-    @Column(name = "file_size")
-    private long file_size;
-
-    @Column(name = "date")
-    private String date;
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
 
 }

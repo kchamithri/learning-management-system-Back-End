@@ -14,6 +14,7 @@ public class CourseService {
     @Autowired
     CourseRepository courseRepository;
 
+    //user enrolled course list
     public CourseResponse view(CourseRequest request){
         CourseResponse response = new CourseResponse();
 
@@ -24,6 +25,7 @@ public class CourseService {
         return response;
     }
 
+    //all courses list
     public CourseResponse viewList(CourseRequest request){
         CourseResponse response = new CourseResponse();
 
@@ -33,4 +35,5 @@ public class CourseService {
         response.setStatus("00");
         return response;
     }
+
 }
